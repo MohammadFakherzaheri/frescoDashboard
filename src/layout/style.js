@@ -1,4 +1,20 @@
+import styledComponents from 'styled-components';
 import Styled from 'styled-components';
+
+const SideMenu = Styled.menu`
+    position: relative;
+
+
+`
+const TopNav = Styled.li`
+    position: fixed;
+    width:100%;
+    height: 80px;
+    background-color: mediumvioletred;
+`
+
+
+
 
 const Div = Styled.div`
     position: relative;
@@ -990,4 +1006,4 @@ const TopMenuStyle = Styled.div`
         }
     }
 `;
-export { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch, TopMenuStyle, TopMenuSearch };
+export { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch, TopMenuStyle, TopMenuSearch,TopNav };
