@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconContext } from "react-icons";
 import { Menu } from "antd";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link ,useRouteMatch} from "react-router-dom";
 import FeatherIcon from "feather-icons-react";
-import {TopNav} from './style'
 const { SubMenu } = Menu;
 function Navbar() {
+  const {path} = useRouteMatch();
+  const pathName = window.location.pathname;
+  const pathArray = pathName.split(path);
+  const mainPath = pathArray[1];
+  const mainPathSplit = mainPath.split('/');
+
+
+
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <TopNav>
-          <Link to="#" className="menu-bars"></Link>
-        </TopNav>
-        <Menu className="sidemenu" >
-          <Menu.Item key={"Dashboard"} icon={<FeatherIcon icon='grid' size={26}/>} >
-            <NavLink to={"#"} title="Dashboard">
+        <Menu className="sidemenu" 
+        defaultSelectedKeys="dashboard"
+        >
+          <Menu.Item key="dashboard" icon={
+            <NavLink className="menuItem-iocn active" to={`${path}`} >
+              <FeatherIcon icon="home"/>
+            </NavLink>
+          } >
+            <NavLink to={`${path}`}  className='active'>
               Dashboard
             </NavLink>
           </Menu.Item>
