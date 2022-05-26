@@ -10,11 +10,9 @@ const Cards = props => {
     const {
         title,
         children,
-
         size,
         headless,
         caption,
- 
         bodyStyle,
         headStyle,
         border,
@@ -37,7 +35,7 @@ const Cards = props => {
             <CardFrame 
             size={size}
             bodypadding = {bodypadding && bodypadding}
-            style = {{width:"100%",background:"#ecccec"}}
+            style = {{width:"100%"}}
             bordered = {border}
             >
                 {title && <SubHeaders as="h4">{title}</SubHeaders>}

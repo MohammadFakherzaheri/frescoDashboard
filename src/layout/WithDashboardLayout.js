@@ -19,13 +19,14 @@ const UpdateTime = (e)=>{
     e.preventDefault();
     setDate(new Date().toLocaleString())
 }
+
 const pathname = window.location.pathname;
 
   const footerStyle = {
     padding: "20px 30px 18px",
-    color: "rgba(0, 0, 0, 0.65)",
+    color: "#DA6A1A",
     fontSize: "14px",
-    background: "rgba(255, 255, 255, .90)",
+    background: "#0e0e0e",
     width: "100%",
     boxShadow: "0 -5px 10px rgba(146,153,184, 0.05)",
   };
@@ -37,7 +38,7 @@ const pathname = window.location.pathname;
     height: "100vh",
     position: "fixed",
     zIndex: 998,
-    background:"rgba(255, 255, 255, .90)"
+    background:"#0e0e0e"
   };
 
 
@@ -71,6 +72,7 @@ const pathname = window.location.pathname;
                 <div className="top-Header-Info">
                 <FeatherIcon  size={26} icon="refresh-ccw" className="updateIcon" onClick={UpdateTime}/>
                 <p>{date}</p>
+                {console.log(date,'data time')}
                 </div>
             </Col>
           </Row>

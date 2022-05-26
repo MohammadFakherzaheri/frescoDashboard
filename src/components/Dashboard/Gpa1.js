@@ -94,7 +94,6 @@ useLayoutEffect(()=>{
       
       
       // Create series
-      // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_series
       let series1 = chart.series.push(am5radar.RadarColumnSeries.new(root, {
         xAxis: xAxis,
         yAxis: yAxis,
@@ -148,8 +147,8 @@ useLayoutEffect(()=>{
                 <Col xxl={24} xs={24} className="card_gpa">
                     <Cards>
                         <div className="gpas_title">
-                            <div id="GPA_1" style={{ width: "100%", height: "200px" }} className="positionrelative heightdesign"></div>
-                            <div>
+                            <div id="GPA_1" style={{ width: "100%", height: "264px" }} className="positionrelative heightdesign"></div>
+                            <div className="subItemsGPA">
                                 <span>GPA 1</span>
                                 <h5>Bdgt vs SQ</h5>
                                 <h4>-1,793,295</h4>

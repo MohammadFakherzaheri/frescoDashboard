@@ -178,7 +178,7 @@ const MarketingStatusChart = ()=>{
         <Main>
             <Row gutter={25} >
             <Col xxl={24} xs={24} >
-                        <Cards title={(<div className="totalprojectMenu">
+                        <Cards style={{paddingTop:7}} title={(<div className="totalprojectMenu">
                             <div className="totalproject-submenu" >
                             <FeatherIcon icon="check-circle" size={24} color="red"/>
                                 <span>Current</span>

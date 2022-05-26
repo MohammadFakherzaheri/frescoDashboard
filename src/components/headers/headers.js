@@ -8,11 +8,11 @@ const  SubHeaders = props =>{
     return(
         <>
             <div style={{
-                backgroundColor : bgColor || '#F4F5F7'
+                backgroundColor : '#0e0e0e'
             }}>
                 <PageHeaderStyle 
                 style={{
-                    backgroundColor: '#ececec',
+                    backgroundColor: '#0e0e0e',
                 }}
                 className ={className}
                 title = {title}

@@ -1,6 +1,6 @@
 import Styled from "styled-components";
 const Main = Styled.div`
-background:#ececec;
+background:#0e0e0e;
 
 .ant-col.monthlytarget-submenu{
     display:flex;
@@ -12,10 +12,12 @@ background:#ececec;
     
     }
 }
+
 .card_gpa{
     .ant-card{
         margin-bottom:0px !important;
     }
+    
 }
 .ant-card-body{
     .gpas_title{
@@ -23,14 +25,17 @@ background:#ececec;
         justify-content: center;
         flex-direction:row;
         span{
-            font-weight:700;
-            color:#0000009e;
+            font-weight: 600;
+    color: #f0f0f0;
+    opacity: 0.7;
         }
         h5{
             font-weight:700;
+            color:white;
         }
         h4{
             font-weight:800;
+            color:white;
         }
       }
 }

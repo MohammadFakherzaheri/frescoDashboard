@@ -197,7 +197,7 @@ const LOIStatus = ()=>{
         <Row gutter={25}>
             <Col xxl={24} xs={24}>
             <Cards title="LOI Issued By Deprtement">
-                <div id="LOIStatus" style={{ width: "100%", height: "200px" }} className="positionrelative heightdesign"></div>
+                <div id="LOIStatus" style={{ width: "100%", height: "224px" }} className="positionrelative heightdesign"></div>
             </Cards>
             </Col>
         </Row>

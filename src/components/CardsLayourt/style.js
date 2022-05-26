@@ -2,82 +2,35 @@ import Styled from 'styled-components';
 import { Card } from 'antd';
 
 const BtnWraper = theme => `
-    .ant-card-head {
-      display: flex;
-      justify-content: space-evenly;
-      .ant-card-head-wrapper{
-        width: 100%;
-      }
-      .ant-tabs.ant-tabs-top.ant-card-head-tabs.ant-tabs-large.ant-tabs-line{
-        width: 100%;
-        display: block;
-      }
-      .ant-tabs-nav-scroll {
-        display: flex;
-        justify-content: flex-end;
-      }
-      .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
-        display: none !important;
-      }
-      .ant-tabs-nav .ant-tabs-tab {
-        border-radius: 2px;
-        height: 30px;
-        margin: 0px;
-        ${theme.rtl ? 'margin-right' : 'margin-left'}: -1px;
-        display: inline-flex;
-        align-items: center;
-        border: 1px solid ${theme['border-color-base']};
-        background: #fff;
-        span svg {
-          ${theme.rtl ? 'padding-right' : 'padding-left'}: 5px !important;
-        }
-      }
-      .ant-tabs-nav .ant-tabs-tab-active {
-        font-weight: 500;
-        border: 1px solid ${theme['primary-color']};
-        background: ${theme['primary-color']};
-        color: #fff;
-        border-radius: 2px;
-        height: 30px;
-        margin: 0px;
-        display: inline-flex;
-        align-items: center;
-      }
-      .ant-tabs-bar {
-        border: none;
-      }
-      .ant-tabs-nav-wrap {
-        margin-bottom: 0px;
-        overflow: hidden;
-    }
-    }
-    .ant-card-head .ant-tabs.ant-tabs-top.ant-card-head-tabs.ant-tabs-large.ant-tabs-line {
-      width: 100%;
-      display: block;
-      justify-content: flex-end;
-      height: 73px;
-      padding-top: 8px;
-  }
+
 `;
 
 const CardFrame = Styled(Card)`
-  ${({ isbutton, theme }) => isbutton && BtnWraper(theme)}
-
+  .ant-card{
+    border-radius:10px;
+    background: #0e0e0e;
+  }
   margin-bottom: 25px !important;
+  background: linear-gradient(53deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.008841036414565795) 0%, rgba(0,212,255,1) 158%);
+    border: 1px solid;
+    border-image: linear-gradient(289deg,rgba(0,212,255,1)100px,rgba(9,9,121,0.008841036414565795) 0%);
+    border-radius:10px;
   .ant-card-head{
     border-color: #F1F2F6;
+    padding: 0 10px !important;
   }
   .GPAS{
     margin-bottom:0px;
   }
   .ant-card-head .ant-card-head-title {
-    padding: 18px 0;
+    padding: 16px 0;
+    color:white;
     .totalprojectMenu{
       display:flex;
       flex-direction:row;
       justify-content:space-between;
       align-items:center;
-
+      
       .totalproject-submenu{
         display: flex;
         flex-direction: column;
@@ -100,10 +53,10 @@ const CardFrame = Styled(Card)`
   }
   .ant-card-head-title .ant-page-header-heading-title{
     font-weight: 500;
-   
   }
   .ant-card-body{
-    padding: ${({ bodypadding }) => (bodypadding ? `${bodypadding} !important` : '25px')};
+    padding: ${({ bodypadding }) => (bodypadding ? `${bodypadding} !important` : '10px')};
+    color:white;
    .totalproject{
      display:flex;
      flex-direction:row;
@@ -111,6 +64,7 @@ const CardFrame = Styled(Card)`
     align-items:center;
     h2{
       margin-bottom:0px;
+      color:white;
     }
   
     

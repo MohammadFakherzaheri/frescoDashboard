@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 
 const DashboardBaseStyleWrap = Styled.div`
-
+  
     h1{
         margin-bottom: 30px;
     }
@@ -16,5 +16,16 @@ const DashboardBaseStyleWrap = Styled.div`
     }
    
 `;
+const Main = Styled.div`
+    background-color:#0e0e0e;
+    padding: 0px 30px 20px;
+    
+    .ant-layout{
+        box-shadow: inset 0px 0px 8px 0px #fff;
+        border-radius: 20px;
+    }
+    
+    
 
-export {DashboardBaseStyleWrap }
+`;
+export {DashboardBaseStyleWrap,Main }

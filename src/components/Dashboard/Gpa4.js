@@ -7,7 +7,7 @@ import { Main } from "./styled";
 import {Row,Col} from 'antd';
 import { Cards } from "../CardsLayourt/cartFrames";
 
-const GPA_1 = ()=>{
+const GPA_4 = ()=>{
 
 useLayoutEffect(()=>{
     let root = am5.Root.new("GPA_4");
@@ -161,4 +161,4 @@ useLayoutEffect(()=>{
         </Main>
     )
 }
-export default GPA_1;
+export default GPA_4;
