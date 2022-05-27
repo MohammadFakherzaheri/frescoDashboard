@@ -7,10 +7,7 @@ background:#0e0e0e;
     flex-direction:row;
     justify-content:center;
     align-items:center;
-    &.border_right {
-        border-right: 3px solid #ececec;
-    
-    }
+   
 }
 
 .card_gpa{

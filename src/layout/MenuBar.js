@@ -1,110 +1,78 @@
-import React, { useState } from "react";
-import { IconContext } from "react-icons";
-import { Menu } from "antd";
-import { NavLink, Link ,useRouteMatch} from "react-router-dom";
+import React from 'react';
+import 'antd/dist/antd.css';
 import FeatherIcon from "feather-icons-react";
-const { SubMenu } = Menu;
-function Navbar() {
-  const {path} = useRouteMatch();
-  const pathName = window.location.pathname;
-  const pathArray = pathName.split(path);
-  const mainPath = pathArray[1];
-  const mainPathSplit = mainPath.split('/');
+import { Button, Menu } from 'antd';
+import { useState } from 'react';
+
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+const items = [
+  getItem('Dashboard','1',<FeatherIcon icon="home"/>),
+  getItem('Project Details','2',<FeatherIcon icon="home"/>),
+  getItem('RFP Tracker','3',<FeatherIcon icon="home"/>),
+  getItem('Years','sub1',<FeatherIcon icon="home"/>),
+  // [
+  //   getItem('2022','4'),
+  //   getItem('2021','5'),
+  //   getItem('2020','6 '),
+  // ],
+  getItem('Department','sub2'),
+  // ,[
+  //   getItem('CMI','7'),
+  //   getItem('DCCI','8'),
+  //   getItem('PCC','9'),
+  //   getItem('CMSS','10'),
+  //   getItem('NAP','11'),
+  // ]),
+  getItem('Project Status','sub3'),
+  // [
+  //   getItem('CURRENT','13'),
+  //   getItem('Closed','14'),
+  //   getItem('Cancled','15'),
+
+  // ]),
+];
+
+console.log(items,'items')
+
+const Navbar = () => {
+  const [collapsed, setCollapsed] = useState(false);
 
 
-
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+  
 
   return (
-    <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <Menu className="sidemenu" 
-        defaultSelectedKeys="dashboard"
-        >
-          <Menu.Item key="dashboard" icon={
-            <NavLink className="menuItem-iocn active" to={`${path}`} >
-              <FeatherIcon icon="home"/>
-            </NavLink>
-          } >
-            <NavLink to={`${path}`}  className='active'>
-              Dashboard
-            </NavLink>
-          </Menu.Item>
-
-          <Menu.Item key="ProjectDetails" title="Project Details">
-            <NavLink to={`${path}`} >
-              Project Details
-            </NavLink>
-          </Menu.Item>
-          <Menu.Item key="Tracker" title="RFP Tracker">
-            <NavLink to={`${path}`} >
-              RFP Tracker
-            </NavLink>
-          </Menu.Item>
-          <SubMenu key='years' title="Years">
-            <Menu.Item key='2022' title={'2022'}>
-                <NavLink to={`${path}`} >
-                  2022
-                </NavLink>
-            </Menu.Item>
-            <Menu.Item key='2021' title={'2021'}>
-                <NavLink to={`${path}`} >
-                  2022
-                </NavLink>
-            </Menu.Item>
-            <Menu.Item key='2020' title={'2020'}>
-                <NavLink to={`${path}`} >
-                  2022
-                </NavLink>
-            </Menu.Item>
-          </SubMenu>
-          <SubMenu key={'Department'} title="Department">
-            <Menu.Item key={'CMI'} title='CMI'>
-                <NavLink to={`${path}`}>
-                  CMI
-                </NavLink>
-            </Menu.Item>
-            <Menu.Item key={'DCCI'} title="DCCI">
-              <NavLink to={`${path}`}>
-                DCCI
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key={'PCC'} title="PCC">
-              <NavLink to={`${path}`}>
-                PCC
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key={'CMSS'} title="CMSS">
-              <NavLink to={`${path}`}>
-                CMSS
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key={'NAP'} title='NAP'>
-              <NavLink to={`${path}`}>
-                NAP
-              </NavLink>
-            </Menu.Item>
-          </SubMenu>
-          <SubMenu key={'projectStatus'} title="Project Status">
-            <Menu.Item key={'CURRENT'} title="CURRENT">
-              <NavLink to={`${path}`}>
-                CURRENT
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key={'closed'} title="Closed">
-              <NavLink to={`${path}`}>
-                Closed
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key={'cancelled'} title="Cancelled">
-              <NavLink to={`${path}`}>
-                Cancelled
-              </NavLink>
-            </Menu.Item>
-          </SubMenu>
-        </Menu>
-      </IconContext.Provider>
-    </>
+    <div>
+      {/* <Button
+        type="primary"
+        onClick={toggleCollapsed}
+        style={{
+          marginBottom: 16,
+        }}
+      >
+       {collapsed ? <FeatherIcon icon='align-left' /> : <FeatherIcon icon='align-right'  />}
+      </Button> */}
+      <Menu
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        theme="dark"
+        inlineCollapsed={collapsed}
+        items={items}
+      />
+    </div>
   );
-}
+};
 
 export default Navbar;

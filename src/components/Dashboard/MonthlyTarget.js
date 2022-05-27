@@ -6,7 +6,7 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import FeatherIcon from 'feather-icons-react'
 import { Cards } from "../CardsLayourt/cartFrames";
-
+import {Divider} from 'antd';
 
 
 const MonthlyTargetChart=()=>{
@@ -131,12 +131,14 @@ chart.appear(1000, 100);
                                     <span>145 M</span>
                                 </div>
                             </Col>
+                            <Divider type="vertical" />
                             <Col xxl={8} xs={8} className="monthlytarget-submenu border_right">
                                 <div >
                                 <FeatherIcon icon="check-circle" size={24} color="red"/>
                                     <span>128 M</span>
                                 </div>
                             </Col>
+                            <Divider type="vertical" />
                             <Col xxl={8} xs={8} className="monthlytarget-submenu">
                                 <div>
                                 <FeatherIcon icon="check-circle" size={24} color="red"/>
