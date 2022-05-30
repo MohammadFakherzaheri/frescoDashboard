@@ -1,22 +1,20 @@
 import React, { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import {Row, Col,Progress, Skeleton} from 'antd';
-import { SubHeaders } from "../components/headers/headers";
-import { DashboardBaseStyleWrap,Main } from "./styled";
+import { SubHeaders } from "../../components/headers/headers";
+import { WContent,Main ,MainContentWarpper,FooterDesign} from "./styled";
 import FeatherIcon from 'feather-icons-react';
 import {FaMoneyBillAlt,FaFileInvoiceDollar} from 'react-icons/fa'
 import {MdArrowDropDown} from 'react-icons/md'
-import {Cards} from '../components/CardsLayourt/cartFrames'
+import {Cards} from '../../components/CardsLayourt/cartFrames'
+import Navbar from "../../layout/MenuBar";
+import TopMenuBar from "../../layout/TopMenuBar";
+import FooterPage from "../../layout/Footer";
 
+const LOISattus = lazy(()=> import('../../components/Dashboard/LOIIssue'));
+const MarketingStatusChart = lazy(()=> import('../../components/Dashboard/MarketingStatus'));
+const MonthlyTargetChart = lazy(()=> import('../../components/Dashboard/MonthlyTarget'))
+const GPA_1 = lazy(()=> import('../../components/Dashboard/Gpa1'));
 
-
-
-const LOISattus = lazy(()=> import('../components/Dashboard/LOIIssue'));
-const MarketingStatusChart = lazy(()=> import('../components/Dashboard/MarketingStatus'));
-const MonthlyTargetChart = lazy(()=> import('../components/Dashboard/MonthlyTarget'))
-const GPA_1 = lazy(()=> import('../components/Dashboard/Gpa1'));
-const GPA_2 = lazy(()=> import('../components/Dashboard/Gpa2'));
-const GPA_3 = lazy(()=> import('../components/Dashboard/Gpa3'));
-const GPA_4 = lazy(()=> import('../components/Dashboard/Gpa4'));
 
 const MainDashboard = props =>{
     const {percentcolor} = props;
@@ -43,11 +41,12 @@ const MainDashboard = props =>{
     
     
     return(
-        <>
-            <SubHeaders
-            title = "Main Dashboard"
-        />
+        <WContent>
+        <Navbar />
+        <MainContentWarpper>
+            <TopMenuBar />
             <Main>
+            < SubHeaders  title="Main Dashboard"/>
                 <Row gutter={25}>
                     <Col xxl={6} xl={6} md={6} sm={12} xs={24} >
                   
@@ -58,16 +57,6 @@ const MainDashboard = props =>{
                             </div>
                             </Cards>
                     </Col>
-                    {/* <Col xxl={4} xl={4} lg={8} md={8} sm={12} xs={24}>
-              
-                        <Cards title="LOI Issued">  
-                        <div className="totalproject">
-                            <h2>197,114,975</h2> 
-                            <FaMoneyBillAlt size={24}/>
-                        </div>
-                            </Cards>
-                     
-                    </Col> */}
                     <Col xxl={6} xl={6} md={6} sm={12} xs={24}>
                         
                         <Cards title="Monthly">  
@@ -79,7 +68,7 @@ const MainDashboard = props =>{
                     </Col>
                     <Col xxl={6} xl={6} md={6} sm={12} xs={24}>
                         
-                        <Cards title="Invoice">  
+                        <Cards title="leads management">  
                         <div className="totalproject">
                             <h2>120,795,716</h2> 
                             <FeatherIcon icon="file-text" size={24}/>
@@ -99,15 +88,6 @@ const MainDashboard = props =>{
                         </div>
                             </Cards>
                     </Col>
-                    {/* <Col xxl={4} xl={4} lg={8} md={8} sm={12} xs={24}>
-                      
-                        <Cards title="P&L">  
-                 
-                            <h2>120,795,716</h2> 
-                            <Progress percent={52} percentcolor={percentcolor}/>
-                            </Cards>
-                       
-                    </Col> */}
                 </Row>
                 <Row gutter={25}>
                     <Col xxl={8} xl={8} lg={8} md={12} sm={12} xs={24}>
@@ -121,7 +101,7 @@ const MainDashboard = props =>{
                         <MarketingStatusChart />
                         </Suspense>
                     </Col>
-                    <Col xxl={8} xl={8} lg={8} md={12} sm={12} xs={24}>
+                    <Col xxl={16} xl={16} lg={16} md={12} sm={12} xs={24}>
                         <Suspense
                             fallback={
                                 <Cards headless>
@@ -133,7 +113,7 @@ const MainDashboard = props =>{
 
                         </Suspense>
                     </Col>
-                    <Col xxl={8} xl={8} lg={8} md={12} sm={12} xs={24}>
+                    {/* <Col xxl={8} xl={8} lg={8} md={12} sm={12} xs={24}>
                             <Suspense 
                                 fallback={
                                     <Cards headless>
@@ -145,7 +125,7 @@ const MainDashboard = props =>{
                                 <GPA_1 />
                                 </Cards>
                             </Suspense>
-                    </Col>
+                    </Col> */}
                 </Row>
                 <Row gutter={25}>
                     <Col lg={15} md={15} xs={24}>
@@ -164,8 +144,11 @@ const MainDashboard = props =>{
                     </Col>
                 </Row>
             </Main>
-
-        </>
+            <FooterDesign>
+            <FooterPage />
+            </FooterDesign>
+            </MainContentWarpper>
+        </WContent>
     )
 }
 

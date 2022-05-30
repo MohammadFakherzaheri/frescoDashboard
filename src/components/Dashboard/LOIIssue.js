@@ -9,6 +9,7 @@ const LOIStatus = ()=>{
 
     useLayoutEffect(()=>{
         let root = am5.Root.new("LOIStatus");
+        root.resize();
         root.setThemes([
             am5themes_Animated.new(root)
           ]);
@@ -31,9 +32,13 @@ const LOIStatus = ()=>{
           xRenderer.grid.template.set("visible", false);
           
           let xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-            maxDeviation: 0.3,
-            categoryField: "country",
-            renderer: xRenderer
+            maxDeviation: 0.10,
+            categoryField: "companies",
+            renderer: xRenderer,
+            oversizedBehavior: "truncate",
+            maxWidth: "100%",
+            height:"100px",
+            ellipsis: "...",
           }));
           
           let yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
@@ -47,14 +52,15 @@ const LOIStatus = ()=>{
             xAxis: xAxis,
             yAxis: yAxis,
             valueYField: "value",
-            categoryXField: "country"
+            categoryXField: "companies",
+          
           }));
 
           series.columns.template.setAll({
             cornerRadiusTL: 5,
             cornerRadiusTR: 5
           });
-
+     
           series.columns.template.adapters.add("fill", function (fill, target) {
             return chart.get("colors").getIndex(series.columns.indexOf(target ));
           });
@@ -67,7 +73,7 @@ const LOIStatus = ()=>{
             return am5.Bullet.new(root, {
               locationY: 1,
               sprite: am5.Label.new(root, {
-                text: "{valueYWorking.formatNumber('#.')}",
+                text: "{valueYWorking.formatNumber('#.')} ",
                 fill: root.interfaceColors.get("alternativeText"),
                 centerY: 0,
                 centerX: am5.p50,
@@ -76,53 +82,54 @@ const LOIStatus = ()=>{
             });
           });
           
-          
           // Set data
           let data = [{
-            "country": "USA",
-            "value": 2025
+            "companies": "Aspiring Bankers",
+            "value": 2022
           }, {
-            "country": "China",
+            "companies": "Punjabi Unversity",
             "value": 1882
           }, {
-            "country": "Japan",
+            "companies": "Medioks",
             "value": 1809
           }, {
-            "country": "Germany",
+            "companies": "CareMust",
             "value": 1322
           }, {
-            "country": "UK",
+            "companies": "HeartsnHands",
             "value": 1122
           }, {
-            "country": "France",
+            "companies": "Khalkat Designs",
             "value": 1114
           }, {
-            "country": "India",
+            "companies": "Hartek Group",
             "value": 984
           }, {
-            "country": "Spain",
+            "companies": "Getwork Traning UK",
             "value": 711
           }, {
-            "country": "Netherlands",
+            "companies": "Fresco Web Services",
             "value": 665
-          }, {
-            "country": "Russia",
-            "value": 580
-          }, {
-            "country": "South Korea",
-            "value": 443
-          }, {
-            "country": "Canada",
-            "value": 441
           }];
           
+        // Add legend
+var legend = chart.children.push(am5.Legend.new(root, {
+  nameField: "companiesX",
+  centerX: am5.percent(50),
+  x: am5.percent(50)
+}));
+
+legend.data.setAll(series.dataItems);
+          
+          legend.data.setAll(series.dataItems);
+
           xAxis.data.setAll(data);
           series.data.setAll(data);
           
           // update data with random values each 1.5 sec
           setInterval(function () {
             updateData();
-          }, 1500)
+          }, 3500)
           
           function updateData() {
             am5.array.each(series.dataItems, function (dataItem) {
@@ -135,7 +142,7 @@ const LOIStatus = ()=>{
               dataItem.animate({
                 key: "valueYWorking",
                 to: value,
-                duration: 600,
+                duration: 3500,
                 easing: am5.ease.out(am5.ease.cubic)
               });
             })

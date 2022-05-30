@@ -8,7 +8,7 @@ const BtnWraper = theme => `
 const CardFrame = Styled(Card)`
   .ant-card{
     border-radius:10px;
-    background: #0e0e0e;
+    background: #transparent;
   }
   margin-bottom: 25px !important;
   background: linear-gradient(53deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.008841036414565795) 0%, rgba(0,212,255,1) 158%);

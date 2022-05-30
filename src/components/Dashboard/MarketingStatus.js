@@ -20,7 +20,7 @@ const MarketingStatusChart = ()=>{
           }));
           let series0 = chart.series.push(am5percent.PieSeries.new(root, {
             valueField: "bottles",
-            categoryField: "country",
+            categoryField: "comapnies",
             alignLabels: false
           }));
           let bgColor = root.interfaceColors.get("background");
@@ -30,145 +30,105 @@ const MarketingStatusChart = ()=>{
     series0.slices.template.setAll({
       stroke: bgColor,
       strokeWidth: 2,
-      tooltipText:
-        "{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} bottles)"
+      
     });
     series0.slices.template.states.create("hover", { scale: 0.95 });
     
     let series1 = chart.series.push(am5percent.PieSeries.new(root, {
       valueField: "litres",
-      categoryField: "country",
+      categoryField: "comapnies",
       alignLabels: true
     }));
     
     series1.slices.template.setAll({
         stroke: bgColor,
         strokeWidth: 2,
-        tooltipText:
-          "{category}: {valuePercentTotal.formatNumber('0.00')}% ({value} litres)"
+       
       });
       
       let current = [{
-        country: "Lithuania",
+        comapnies: "Aspiring Bankers",
         litres: 50.9,
         bottles: 100
       }, {
-        country: "Czech Republic",
+        comapnies: "Punjabi Unversity",
         litres: 301.9,
         bottles: 90
       }, {
-        country: "Ireland",
+        comapnies: "Medioks ",
         litres: 201.1,
         bottles: 78
       }, {
-        country: "Germany",
+        comapnies: "CareMust",
         litres: 15.8,
         bottles: 25
       }, {
-        country: "Australia",
+        comapnies: "HeartsnHands",
         litres: 139.9,
         bottles: 45
       }, {
-        country: "Austria",
+        comapnies: "Khalkat Designs",
         litres: 18.3,
         bottles: 32
       }, {
-        country: "UK",
+        comapnies: "Hartek Group",
         litres: 99,
         bottles: 150
       }, {
-        country: "Belgium",
+        comapnies: "Getwork Traning UK",
         litres: 60,
         bottles: 178
       }, {
-        country: "The Netherlands",
+        comapnies: "Fresco Web Services Pvt. Ltd.",
         litres: 50,
         bottles: 50
       }];
       
       let closed = [{
-        country: "Lithuania",
+        comapnies: "NIMIMS",
         litres: 501.9,
         bottles: 1500
       }, {
-        country: "Czech Republic",
+        comapnies: "NVP ",
         litres: 301.9,
         bottles: 990
-      }, {
-        country: "Ireland",
-        litres: 201.1,
-        bottles: 785
-      }, {
-        country: "Germany",
-        litres: 165.8,
-        bottles: 255
-      }, {
-        country: "Australia",
-        litres: 139.9,
-        bottles: 452
-      }, {
-        country: "Austria",
-        litres: 128.3,
-        bottles: 332
-      }, {
-        country: "UK",
-        litres: 99,
-        bottles: 150
-      }, {
-        country: "Belgium",
-        litres: 60,
-        bottles: 178
-      }, {
-        country: "The Netherlands",
-        litres: 50,
-        bottles: 50
       }];
       let cancelled = [{
-        country: "Lithuania",
+        comapnies: "Khalkat Designs",
         litres: 501.9,
         bottles: 1500
       }, {
-        country: "Czech Republic",
+        comapnies: "Czech Republic",
         litres: 301.9,
         bottles: 990
       }, {
-        country: "Ireland",
+        comapnies: "Ireland",
         litres: 201.1,
         bottles: 785
       }, {
-        country: "Germany",
+        comapnies: "Germany",
         litres: 165.8,
         bottles: 255
       }, {
-        country: "Australia",
+        comapnies: "Australia",
         litres: 139.9,
         bottles: 452
-      }, {
-        country: "Austria",
-        litres: 128.3,
-        bottles: 332
-      }, {
-        country: "UK",
-        litres: 99,
-        bottles: 150
-      }, {
-        country: "Belgium",
-        litres: 60,
-        bottles: 178
-      }, {
-        country: "The Netherlands",
-        litres: 50,
-        bottles: 50
       }];
       // Set data
 
 
-        series0.data.setAll(current);
-        series1.data.setAll(current);
+
+
+
+          series0.data.setAll(current);
+          series1.data.setAll(closed);
+          // series2.data.setAll(cancelled);
+     
 
       // Play initial series animation
       series0.appear(1000, 100);
       series1.appear(1000, 100);
+      // series2.appear(1000, 100);
     })
    
 
@@ -183,11 +143,11 @@ const MarketingStatusChart = ()=>{
                             <FeatherIcon icon="check-circle" size={24} color="red"/>
                                 <span>Current</span>
                             </div>
-                            <div className="totalproject-submenu">
+                            <div className="totalproject-submenu" >
                             <FeatherIcon icon="check" size={24} color="green"/>
                                 <span>Closed</span>
                             </div>
-                            <div className="totalproject-submenu">
+                            <div className="totalproject-submenu" >
                             <FeatherIcon icon="x" size={24} color="orange"/>
                                 <span>Cancelled</span>
                             </div>

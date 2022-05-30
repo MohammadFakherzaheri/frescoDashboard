@@ -1,6 +1,6 @@
 import Styled from "styled-components";
 const Main = Styled.div`
-background:#0e0e0e;
+background:transparent;
 
 .ant-col.monthlytarget-submenu{
     display:flex;
